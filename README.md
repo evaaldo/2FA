@@ -13,10 +13,10 @@
 	<li>SQL</li>
 </ul>
 
-<!-- <h4>✦ Endpoints</h4>
+<h4>✦ Endpoints</h4>
 <ul>
-    <li>"/auth" => POST - Verificar cliente e gerar token JWT</li>
-    <li>"/auth/validate-token" => GET - Validar token informado pelo cliente</li>
-    <li>"/costumer" => POST - Registrar cliente o banco de dados</li>
-    <li>"/costumer" => GET - Buscar todos os clientes registrados no banco de dados</li>
-</ul> -->
+    <li>"/auth/generateQr/{email}" => GET - Gerar QR Code</li>
+    <li>"auth/validateCode" => POST - Validar código PIN</li>
+    <li>"auth/validateCode" => POST - Validar cliente no banco</li>
+    <li>"/costumer/register" => POST - Registrar cliente o banco de dados</li>
+</ul>
