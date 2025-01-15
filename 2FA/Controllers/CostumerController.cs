@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using _2FA.DTOs;
+using AutoMapper;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 
@@ -20,6 +22,27 @@ namespace _2FA.Controllers
         }
 
         [HttpPost("costumer/register")]
-        public ActionResult<bool> 
+        public ActionResult<RegisterDTO> RegisterCostumer([FromBody] RegisterDTO register)
+        {
+            try
+            {
+                var sql = "INSERT INTO Costumers (CPF,Username,Email,Password) VALUES (@CPF,@Username,@Email,@Password)";
+
+                _connection.Execute(sql, new
+                {
+                    CPF = register.CPF,
+                    Username = register.Username,
+                    Email = register.Email,
+                    Password = register.Password
+                });
+
+                return Ok("Cliente criado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Não foi possível criar o cliente: " + ex.Message);
+                return BadRequest("Não foi possível criar o cliente: " + ex.Message);
+            }
+        }
     }
 }
