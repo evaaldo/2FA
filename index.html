@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="body-form">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://kit.fontawesome.com/88cbac72fc.js" crossorigin="anonymous"></script>
+<script src="./js/Connection.js"></script>
+<script src="./js/Login.js"></script>
 
 <div class="form_container">
   <i class="fa-solid fa-person-walking-arrow-right"></i>
@@ -33,7 +36,7 @@
     </svg>
     <input placeholder="Password" title="Inpit title" name="input-name" type="password" class="input_field" id="password_field">
   </div>
-  <button title="Sign In" type="submit" class="sign-in_btn" id="signin">
+  <button title="Sign In" class="sign-in_btn" id="signin" onclick="Login.Authenticate()">
     <span>Sign In</span>
   </button>
 
@@ -42,7 +45,7 @@
     <span>Or</span>
     <hr class="line">
   </div>
-  <a href="signup.html" title="Sign In" type="submit" class="sign-up link">
+  <a href="signup.html" title="Sign In" class="sign-up link">
     <i class="fa-solid fa-user-plus"></i>
     <span>Sign up</span>
   </a>

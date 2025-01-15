@@ -62,7 +62,7 @@ namespace _2FA.Controllers
         }
 
         [HttpPost("auth/validateUser")]
-        public ActionResult<bool> ValidateUser([FromBody] LoginDTO login)
+        public ActionResult<LoginDTO> ValidateUser([FromBody] LoginDTO login)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace _2FA.Controllers
                     return NotFound("Cliente não encontrado");
                 }
 
-                return true;
+                return Ok(costumerDb);
             }
             catch (Exception ex) 
             {

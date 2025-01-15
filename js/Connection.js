@@ -1,26 +1,61 @@
 var Connection = {
 
-    httpGetRequest: function(url) {
-
-    },
-
-    httpPostRequest: async function(url, body) {
-        var response = await fetch(url, {
-            method: "POST",
+    httpGetRequest: async function(url, devolve) {
+        var requestConfig = {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json"
-            },
-            body: {
-                "Email": body.Email,
-                "Password": body.Password
-            }
-        });
+            }            
+        };
+
+        var response = await fetch(url,requestConfig);
+        console.log(response);
 
         if (!response.ok) {
             return "Erro na requisição";
         }
 
-        return await response.json();
+        var responseHandlers = {
+            "JSON": () => response.json(),
+            "Text": () => response.text()
+        }
+
+        if (responseHandlers[devolve]) {
+            return await responseHandlers[devolve]();
+        } else {
+            console.log("Erro na requisição");
+        }
+    },
+
+    httpPostRequest: async function(url, body, devolve) {
+        var requestConfig = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }            
+        };
+
+        if (body) {
+            requestConfig.body = JSON.stringify(body);
+        }
+
+        var response = await fetch(url,requestConfig);
+        console.log(response);
+
+        if (!response.ok) {
+            return "Erro na requisição";
+        }
+
+        var responseHandlers = {
+            "JSON": () => response.json(),
+            "Text": () => response.text()
+        }
+
+        if (responseHandlers[devolve]) {
+            return await responseHandlers[devolve]();
+        } else {
+            console.log("Erro na requisição");
+        }
     }
 
 };
