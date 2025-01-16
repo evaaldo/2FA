@@ -1,3 +1,4 @@
+using _2FA.Controllers;
 using _2FA.Mappings;
 using Google.Authenticator;
 using System.Data;
@@ -14,6 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<TwoFactorAuthenticator>();
 
 builder.Services.AddScoped<IDbConnection>(sp => new SqlConnection(builder.Configuration.GetConnectionString("Default Connection")));
+
+builder.Services.AddScoped<TokenController>();
 
 builder.Services.AddAutoMapper(typeof(EntitiesToDTOMappingProfile));
 

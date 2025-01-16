@@ -9,6 +9,7 @@ using System.Text;
 namespace _2FA.Controllers
 {
     [ApiController]
+    [Route("token")]
     public class TokenController : ControllerBase
     {
         private readonly ILogger<TokenController> _logger;
@@ -38,9 +39,10 @@ namespace _2FA.Controllers
             return tokenString;
         }
 
-        public ActionResult ValidateToken(string token)
+        [HttpPost("validate")]
+        public ActionResult ValidateToken([FromBody] Token token)
         {
-            if (string.IsNullOrWhiteSpace(token))
+            if (string.IsNullOrWhiteSpace(token.TokenJwt))
             {
                 return BadRequest("Nenhum token foi passado");
             };
@@ -58,7 +60,7 @@ namespace _2FA.Controllers
                     ClockSkew = TimeSpan.Zero
                 };
 
-                tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
+                tokenHandler.ValidateToken(token.TokenJwt, validationParameters, out SecurityToken validatedToken);
                 return Ok("Token válido");
 
             }

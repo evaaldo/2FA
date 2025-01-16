@@ -8,6 +8,7 @@ using System.Data;
 using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 using Dapper;
 using Microsoft.Extensions.Logging;
+using _2FA.Models;
 
 namespace _2FA.Controllers
 {
@@ -19,13 +20,15 @@ namespace _2FA.Controllers
         private readonly ILogger<AuthenticationController> _logger;
         private readonly IDbConnection _connection;
         private readonly IMapper _mapper;
+        private readonly TokenController _tokenController;
 
-        public AuthenticationController(IMapper mapper, TwoFactorAuthenticator tfa, ILogger<AuthenticationController> logger, IDbConnection connection)
+        public AuthenticationController(TokenController tokenController, IMapper mapper, TwoFactorAuthenticator tfa, ILogger<AuthenticationController> logger, IDbConnection connection)
         {
             _mapper = mapper;
             _tfa = tfa;
             _logger = logger;
             _connection = connection;
+            _tokenController = tokenController;
         }
 
         [HttpGet("auth/generateQr/{email}")]
@@ -68,14 +71,16 @@ namespace _2FA.Controllers
             {
                 var sql = "SELECT * FROM Costumers WHERE Email = @Email AND Password = @Password";
 
-                var costumerDb = _connection.Query(sql, new { Email = login.Email, Password = login.Password });
+                var costumerDb = _connection.QueryFirstOrDefault<Costumer>(sql, new { Email = login.Email, Password = login.Password });
 
-                if (!costumerDb.Any())
+                if (costumerDb == null)
                 {
                     return NotFound("Cliente não encontrado");
                 }
 
-                return Ok(costumerDb);
+                var token = _tokenController.CreateToken(costumerDb);
+
+                return Ok(token);
             }
             catch (Exception ex) 
             {
