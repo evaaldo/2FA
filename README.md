@@ -19,4 +19,5 @@
     <li>"auth/validateCode" => POST - Validar código PIN</li>
     <li>"auth/validateCode" => POST - Validar cliente no banco</li>
     <li>"/costumer/register" => POST - Registrar cliente o banco de dados</li>
+    <li>"/token/validate" => POST - Validar token JWT</li>
 </ul>
