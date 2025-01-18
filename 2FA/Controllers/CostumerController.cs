@@ -21,7 +21,7 @@ namespace _2FA.Controllers
             _logger = logger;
         }
 
-        [HttpPost("costumer/register")]
+        [HttpPost("register")]
         public ActionResult<RegisterDTO> RegisterCostumer([FromBody] RegisterDTO register)
         {
             try

@@ -1,7 +1,7 @@
 var Login = {
 
     Authenticate: async function() {
-        await Login.validateToken() ? console.log("mudar de tela") : console.log("nao mudar de tela");
+        await Login.validateToken() ? window.location.href = "http://127.0.0.1:5500/home.html" : window.location.href = "http://127.0.0.1:5500/index.html";
     },
 
     validateUserOnDatabase: async function() {
@@ -32,6 +32,11 @@ var Login = {
         var body = { "TokenJwt": token };
 
         var response = await Connection.httpPostRequest("https://localhost:7059/token/validate",body,"Text");
+
+        if (response == "Token válido")
+        {
+            localStorage.setItem("token", token);
+        };
 
         return response == "Token válido";
     }

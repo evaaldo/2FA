@@ -1,0 +1,16 @@
+.body-unauthorized {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.btn_home {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: .25em .75em;
+    text-decoration: none;
+    border-radius: 5px;
+}
