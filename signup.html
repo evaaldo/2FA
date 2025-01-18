@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 </head>
 <body class="body-form">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://kit.fontawesome.com/88cbac72fc.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="./js/Connection.js"></script>
 <script src="./js/Login.js"></script>
 <script src="./js/Home.js"></script>
+<script src="./js/Register.js"></script>
+<script src="./js/Utils.js"></script>
 
 <div class="form_container">
     <i class="fa-solid fa-address-card"></i>
@@ -66,7 +70,7 @@
     </svg>
     <input placeholder="Password" title="Inpit title" name="input-name" type="password" class="input_field" id="password-confirm_field">
   </div>
-  <button title="Sign up" type="submit" class="sign-in_btn" id="signin">
+  <button title="Sign up" class="sign-in_btn" id="signin" onclick="Register.registerCostumer()">
     <span>Register</span>
   </button>
 

@@ -1,7 +1,7 @@
 var Login = {
 
     Authenticate: async function() {
-        await Login.validateToken() ? window.location.href = "http://127.0.0.1:5500/home.html" : window.location.href = "http://127.0.0.1:5500/index.html";
+        await Login.validateToken() ? window.location.href = "http://127.0.0.1:5500/home.html" : Utils.notify("error","Falha ao autenticar");;
     },
 
     validateUserOnDatabase: async function() {

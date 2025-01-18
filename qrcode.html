@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign QR Code</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+</head>
+<body class="body-form">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/88cbac72fc.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./js/Connection.js"></script>
+    <script src="./js/Login.js"></script>
+    <script src="./js/Home.js"></script>
+    <script src="./js/Register.js"></script>
+    <script src="./js/Utils.js"></script>
+
+    <div class="form_container">
+        <i class="fa-solid fa-qrcode"></i>
+        <div class="title_container">
+          <p class="title">QR Code</p>
+          <span class="subtitle">Point the camera to the QR code down bellow to create an PIN on your Google Aunthenticator</span>
+        </div>
+        <div class="input_container">
+          <img id="qrCode" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAACfAQAAAADPYDZNAAACb0lEQVR4nOWWsc3kIBCFxyIg8zaARBtktGQ34LUb8LZERhtIbgAyAuS5h+1/L7gEktNJZ1nI+naF4M2bB8R/Pif9LzASLZI//thcWKwi0l0wcZl9GU0hzJ/LmzuhU29M6MPgxG7KJLvhZPCKaMSKj3445zBKGjwt1A+5QJCUdWLx4d/bbITQc/bq+35FboR4UqY560iCs/6WuBGehmaHghJJwRwm0wnpiFZsDosJRHQL0g6ZaTTYV5gzb473Z0etMDF2AT/QaMXHHfEpRzPMYYIUrHepJnvgP10QFjptIaMGH16slkuQdsiuvJz+VBurIYuU+2AkXm2tQnJlrC15O6QVplxmJ5LnVaIuZeyEp9WnDFXM2g5i7YSc0T56pzBZrA1F6YPJH8lBSRSiDHCy74MnoX9RFDiZFoz2dnIrhA2SV5AxWnSEjnc122FWM6vRoIURYvi+t9kKYd1oefPIEDSyTu4yQwes/bvWBNObp+GZsxWeUpySkMAYR3vspg+mav7yYnGSWCHmpWcHzHo3hAbcHJGBJn0wksLHasQuYQa44u6OVnhlZpjhBxtG+onfZggXzQ6jGqu2iII+iLcmAEETBT8/zdUBC6F9SH88cgxz3vZuhcwHs0ju+GSEN47OO5PboXq5AAMjQzZXBtcHT9JRit1qzsw4+65qtsOU1cDhVdejJgxPrLXC69ys0YGOWAy66XuYNsHrvoQQwIT1nTshgmuyASuJEpJifC4SrfC+sRh0cS3rrWcf9OWdcdWpntwvd3XBGpuyvJFC9adnzlaIuyKuHPYyQ1Y4CLrgpWdYJLZTVUU/dsG/dvf+5+AvaWFy7Qam99AAAAAASUVORK5CYII=" alt="QR Code">
+        </div>
+        <button title="Sign In" class="sign-in_btn" id="signin_qrcode">
+            <i class="fa-solid fa-person-walking"></i>
+            <span>Sign In</span>
+        </button>
+        <a href="https://github.com/evaaldo" class="note">Evaldo Rodrigues</a>
+      </div>
+</body>
+</html>
