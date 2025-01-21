@@ -1,6 +1,6 @@
 var Home = {
 
-    Initialize: function() {
+    initialize: function() {
         Home.validateToken();
     },
 
@@ -17,5 +17,5 @@ var Home = {
 };
 
 $(document).ready(function() {
-    Home.Initialize();
+    Home.initialize();
 });

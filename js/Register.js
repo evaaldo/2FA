@@ -10,12 +10,14 @@ var Register = {
         };
 
         var response = await Connection.httpPostRequest("https://localhost:7059/costumer/register", body, "Text");
-        console.log("Response do register" + response);
+        console.log("Response do register: " + response);
 
-        if(response == "Cliente criado com sucesso!")
+        if(response == $("#email_field").val())
         {
+            localStorage.setItem("emailQrCode", $("#email_field").val());
             Utils.clearFields();
             Utils.notify("success","Você foi cadastrado com sucesso!");
+            Utils.loadForForm("http://127.0.0.1:5500/qrcode.html")
         }
         else
         {

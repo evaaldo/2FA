@@ -31,7 +31,7 @@ namespace _2FA.Controllers
             _tokenController = tokenController;
         }
 
-        [HttpGet("auth/generateQr/{email}")]
+        [HttpGet("generateQr/{email}")]
         public ActionResult<string> GenerateQR(string email)
         {
             try
@@ -41,7 +41,7 @@ namespace _2FA.Controllers
 
                 _logger.LogInformation(key);
 
-                return Ok(setupInfo.QrCodeSetupImageUrl);
+                return setupInfo.QrCodeSetupImageUrl;
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace _2FA.Controllers
             }
         }
 
-        [HttpPost("auth/validateCode")]
+        [HttpPost("validateCode")]
         public ActionResult<bool> ValidateCode(string code, string key)
         {
             try

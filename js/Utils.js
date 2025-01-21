@@ -25,6 +25,29 @@ var Utils = {
         };
     
         toastr[type](message);
+    },
+
+    loadForForm: function(url) {
+        $(".form_container").hide();
+        $("body").append(`
+            <div class="dot-spinner">
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+                <div class="dot-spinner__dot"></div>
+            </div>    
+        `);
+    
+        setTimeout(() => {
+            $(".dot-spinner").remove();
+            $(".form_container").show();
+            window.location.href = url;
+        }, 3000);
     }
+    
 
 };

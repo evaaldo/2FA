@@ -36,7 +36,7 @@ namespace _2FA.Controllers
                     Password = register.Password
                 });
 
-                return Ok("Cliente criado com sucesso!");
+                return Ok(register.Email);
             }
             catch (Exception ex)
             {
